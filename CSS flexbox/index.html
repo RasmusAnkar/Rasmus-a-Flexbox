@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="style.css" />
+
+<html>
+    <head>
+        <!-- meta tagg -->
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+    </head>
+    <body class="background_color">
+        <div class="flex">
+            <!-- Classen Flex kan även kallas Container och "Clickable box är item" Hem har classen "Selected Item" eftersom att det är den sidan
+            vi är inne på och har därför ingen länk och en annan färg -->
+            <div class="selected_item"><h2 class="clickable_box_text">Hem</h2></div>
+            <a href="Products.html" class="clickable_box">
+                <div><h2 class="clickable_box_text">Produkter</h2></div>
+            </a>
+            <a href="about.html" class="clickable_box">
+                <div><h2 class="clickable_box_text">Om Oss</h2></div>
+            </a>
+            <a href="documentation.html" class="clickable_box">
+                <div><h2 class="clickable_box_text">Dokumentation</h2></div>
+            </a>
+            <a href="contacts.html" class="clickable_box">
+                <div><h2 class="clickable_box_text">Kontaktinformation</h2></div>
+            </a>
+            <!-- Själva länkarna har dimentionerna av lådorna istället för knapp -->
+            <div class="dropdown_meny">
+                <button class="button"><img class="shopping_cart" src="img/Shopping_Cart.png" alt="shopping cart icon" /></button>
+                <div class="dropdown_content">
+                    <a href="index.html" class="center_text">Hem</a>
+                    <a href="Products.html" class="center_text">Till Produkter</a>
+                    <a href="about.html" class="center_text">Om Oss</a>
+                    <!-- Dropdown meny på shoppingcart som inte blev klar-->
+                </div>
+            </div>
+        </div>
+
+        <h1 class="center_text">Välkomen till The Croc Shop</h1>
+        <h2 class="center_text padding">
+           Här på The Croc Shop har vi ett stort utbud av Crocs av den högsta kvaliten <br>
+           Våra Crocs är närproducerade och gjorda av 100% återvunnet plast från havet <br>
+        </h2>
+        <h2 class="feat_text">Våra bästsäljare:</h2>
+        <!-- Här börjar slideshow koden -->
+        <div class="slideshow_container">
+            <div class="slide_hider fade">
+                <div class="numbertext">1/4</div>
+                <img src="img/Cars_Croc.jpg" alt="Cars Croc" class="feat_pics_size" />
+                <div class="feat_items_text">Cars Croc bara 499$</div>
+            </div>
+            <div class="slide_hider fade">
+                <div class="numbertext">2/4</div>
+                <img src="img/Green_Croc.jpg" alt="Green Croc" class="feat_pics_size" />
+                <div class="feat_items_text">Green Croc bara 120$</div>
+            </div>
+            <div class="slide_hider fade">
+                <div class="numbertext">3/4</div>
+                <img class="feat_pics_size" src="img/Fire_Croc.jpg" alt="Fire Croc" />
+                <div class="feat_items_text">Fiery Croc bara 333$</div>
+            </div>
+            <div class="slide_hider fade">
+                <div class="numbertext">4/4</div>
+                <img class="feat_pics_size" src="img/Translucent_Croc.jpg" alt="Translucent Croc" />
+                <div class="feat_items_text">Translucent Croc bara 500$</div>
+            </div>
+
+            <!-- Knapparna till höger och vänster om bliderna-->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br />
+
+        <!-- De små rutorna som visar vilken blid man är på -->
+        <div style="text-align: center;">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+
+        <div class="footer"></div>
+        <!-- Javascript kod -->
+        <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            
+            function plusSlides(n) {
+                showSlides((slideIndex += n));
+            }
+
+            
+            function currentSlide(n) {
+                showSlides((slideIndex = n));
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("slide_hider");
+                var dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {
+                    slideIndex = 1;
+                }
+                if (n < 1) {
+                    slideIndex = slides.length;
+                }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+        </script>
+    </body>
+</html>
